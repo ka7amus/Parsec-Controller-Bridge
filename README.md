@@ -148,8 +148,14 @@ directly.
 
 ```bash
 pip install -r requirements.txt -r requirements-build.txt
-pyinstaller --onefile --windowed --name SwitchInputBridge bridge_gui.py
+python -m PyInstaller --onefile --windowed --name SwitchInputBridge bridge_gui.py
 ```
+
+Use `python -m PyInstaller` rather than the bare `pyinstaller` command — pip
+often installs it to a user-level `Scripts` folder that isn't on `PATH`
+(especially in PowerShell), which makes the bare command fail with
+"not recognized" even though it installed fine. Going through `python -m`
+sidesteps that since only `python` itself needs to be on `PATH`.
 
 The result is `dist/SwitchInputBridge.exe` — double-clickable, no console
 window, no Python installation required on the machine that runs it. Re-run
