@@ -1,5 +1,7 @@
 # switch-input-bridge
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Lets a controller plugged into your PC control a Nintendo Switch, by relaying
 its input to your OGX-Mini adapter through a Raspberry Pi Pico acting as a
 translator.
