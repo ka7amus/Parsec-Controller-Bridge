@@ -3,6 +3,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
  Allows for Parsec users or Moonlight users to control a remote console through Their own controller adapter. 
+
+
+YT Vid on the Project HERE---> https://youtu.be/zYuDzN80DpQ
+ 
  
  Controller adapters for consoles need a controller plugged into them to work so I wanted to have a way to send Parsec inputs to a console from a PC 
  
