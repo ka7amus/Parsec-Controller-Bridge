@@ -33,7 +33,7 @@ import controller_bridge as cb
 
 def config_path() -> str:
     base = os.getenv("APPDATA") or os.path.expanduser("~")
-    folder = os.path.join(base, "SwitchInputBridge")
+    folder = os.path.join(base, "Parsec-Controller-Bridge")
     os.makedirs(folder, exist_ok=True)
     return os.path.join(folder, "config.json")
 
@@ -104,7 +104,7 @@ class StreamWorker(threading.Thread):
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Switch Input Bridge")
+        self.title("Parsec Controller Bridge")
         self.resizable(False, False)
         self.report_callback_exception = self._on_tk_exception
 
@@ -206,12 +206,12 @@ class App(tk.Tk):
         port = self.port_var.get()
         joystick_index = self._selected_joystick_index()
         if not port or joystick_index is None:
-            messagebox.showerror("Switch Input Bridge", "Select a serial port and a controller first.")
+            messagebox.showerror("Parsec Controller Bridge", "Select a serial port and a controller first.")
             return
         try:
             rate = float(self.rate_var.get())
         except ValueError:
-            messagebox.showerror("Switch Input Bridge", "Send rate must be a number.")
+            messagebox.showerror("Parsec Controller Bridge", "Send rate must be a number.")
             return
 
         joystick_name = self.joystick_var.get().split(":", 1)[1].strip() if ":" in self.joystick_var.get() else ""
@@ -255,14 +255,14 @@ class App(tk.Tk):
                 elif kind == "error":
                     self.status_var.set("Error")
                     self._log(f"ERROR: {message}")
-                    messagebox.showerror("Switch Input Bridge", message)
+                    messagebox.showerror("Parsec Controller Bridge", message)
                     self._on_stop()
         except queue.Empty:
             pass
         self.after(100, self._poll_log_queue)
 
     def _on_tk_exception(self, exc, val, tb):
-        messagebox.showerror("Switch Input Bridge - unexpected error", str(val))
+        messagebox.showerror("Parsec Controller Bridge - unexpected error", str(val))
 
     def _on_close(self):
         self._on_stop()

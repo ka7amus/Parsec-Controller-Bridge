@@ -1,4 +1,4 @@
-# switch-input-bridge
+# Parsec-Controller-Bridge
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -135,7 +135,7 @@ python bridge_gui.py
 Pick the COM port and controller from the dropdowns (Refresh re-scans both —
 useful if you plug something in after opening the app) and hit Start. It
 remembers your last-used port/controller/rate (stored in
-`%APPDATA%\SwitchInputBridge\config.json`) and preselects them next time.
+`%APPDATA%\Parsec-Controller-Bridge\config.json`) and preselects them next time.
 
 The GUI is a thin wrapper — it imports `build_packet`/`read_state`/etc.
 directly from `controller_bridge.py`, so `BUTTON_MAP` and everything else
@@ -148,7 +148,7 @@ directly.
 
 ```bash
 pip install -r requirements.txt -r requirements-build.txt
-python -m PyInstaller --onefile --windowed --name SwitchInputBridge bridge_gui.py
+python -m PyInstaller --onefile --windowed --name Parsec-Controller-Bridge bridge_gui.py
 ```
 
 Use `python -m PyInstaller` rather than the bare `pyinstaller` command — pip
@@ -157,7 +157,7 @@ often installs it to a user-level `Scripts` folder that isn't on `PATH`
 "not recognized" even though it installed fine. Going through `python -m`
 sidesteps that since only `python` itself needs to be on `PATH`.
 
-The result is `dist/SwitchInputBridge.exe` — double-clickable, no console
+The result is `dist/Parsec-Controller-Bridge.exe` — double-clickable, no console
 window, no Python installation required on the machine that runs it. Re-run
 the command after any code changes; `build/`, `dist/`, and the generated
 `.spec` file are build output and don't need to be committed.
